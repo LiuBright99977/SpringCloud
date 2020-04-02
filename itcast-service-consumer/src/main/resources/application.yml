@@ -1,0 +1,26 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: service-consumer
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:10086/eureka
+
+service-provider: #服务提供方的服务id
+  ribbon:
+    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule   #负载均衡策略的路径
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            tiomeoutInMilliseconds: 6000 #设置hystrix的请求超时时间为6s
+feign:
+  hystrix:
+    enabled: true   #开启Feign的熔断功能
+
+
+
