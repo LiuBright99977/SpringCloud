@@ -1,0 +1,25 @@
+server:
+  port: 10010
+spring:
+  application:
+    name: itcast-zuul
+zuul:
+  routes:
+    service-provider: /user/**
+    service-conmuser: /conmuser/**
+  prefix: /api
+
+      # path: /service-provider/**
+      #url: http://localhost:8082
+    # serviceId: service-provider
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:10086/eureka  #\u8FDE\u63A5eureka\u6CE8\u518C\u4E2D\u5FC3
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            tiomeoutInMilliseconds: 6000 #\u8BBE\u7F6Ehystrix\u7684\u8BF7\u6C42\u8D85\u65F6\u65F6\u95F4\u4E3A6s
