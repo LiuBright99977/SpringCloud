@@ -1,0 +1,13 @@
+server:
+  port: 10087
+  #将来会作为微服务名称注入到Eureka容器中
+  #Eureka本身就是一个微服务，它可以把自己注册给自己
+spring:
+  application:
+    name: itcast-eureka
+
+#注册的地址
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:10086/eureka
